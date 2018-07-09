@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>sacner</title>
+    </head>
+    <body>
+        <h2>尽情地扫描吧</h2>
+        <form method="post" action="/user">
+            <script type="text/javascript" src="jquery.min.js"></script>
+            <script type="text/javascript">
+            $(function(){
+                $('button').click(function(){
+                    var val = $('input[name="type"]:checked').val();
+                    console.log(val);
+
+                });
+            })
+            </script>
+
+
+
+            <p>
+                扫描类型:<br>
+                <input type="radio"  name="type" value="1">link
+                <input type="radio"  name="type"  value="2">ip
+                <input type="radio"  name="type" value="3" checked>transport
+            </p>
+            <p>
+
+                ip:</br>
+
+                <input id="ip" type="text" name="ip">
+            </p>
+            <p>
+                port:</br>
+                <input id="port" type="text" name="port">
+            </p>
+            <p>
+                网卡:<br>
+                <input id="interface" type="text" name="interface">
+            </p>
+            <p>
+                线程:<br>
+                <input id="thread" type="text" name="thread">
+            </p>
+        </form>
+    </body>
+</html>
