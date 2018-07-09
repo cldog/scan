@@ -28,9 +28,9 @@ def worker(iface='eth0'):
         ping = sr1(packet, timeout=2, verbose=False,iface=iface)
 
         if str(ping) == 'None':
-            print u, '------->关闭'
+            print u, '------->关闭</br>'
         else:
-            print u, ' 存活------->'
+            print u, ' 存活-------></br>'
         queue.task_done()
 
 

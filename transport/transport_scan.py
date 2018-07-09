@@ -30,28 +30,22 @@ def worker1(iface='eth0',port=[]):
                                 verbose=False,iface=iface)
             if (udp_scan_resp is None):
 
-                retrans = []
-                for count in range(0, 3):
-                    retrans.append(sr1(IP(dst=dst_ip) / UDP(dport=dst_port), timeout=dst_timeout, verbose=False,iface=iface))
-                for item in retrans:
-                    if (udp_scan_resp is not None):
-                        udp_scan(dst_ip, dst_port, dst_timeout)
-                print u, ':', y, "------->Open|Filtered"
+                print u, ':', y, "------->Open|Filtered</br>"
             elif (udp_scan_resp.haslayer(UDP)):
 
-                print u, ':', y, "<---Open--->"
+                print u, ':', y, "<---Open---></br>"
             elif (udp_scan_resp.haslayer(ICMP)):
 
                 if (int(udp_scan_resp.getlayer(ICMP).type) == 3 and int(udp_scan_resp.getlayer(ICMP).code) == 3):
 
-                    print u, ':', y, "--->Closed<---"
+                    print u, ':', y, "--->Closed<---</br>"
                 elif (int(udp_scan_resp.getlayer(ICMP).type) == 3 and int(udp_scan_resp.getlayer(ICMP).code) in [1,
                                                                                                                  2,
                                                                                                                  9,
                                                                                                                  10,
                                                                                                                  13]):
 
-                    print u, ':', y, "<-------Filtered"
+                    print u, ':', y, "<-------Filtered</br>"
 
         queue1.task_done()
 
@@ -74,7 +68,7 @@ def worker(iface='eth0'):
         ping = sr1(packet, timeout=2, verbose=False,iface=iface)
 
         if str(ping) == 'None':
-            print u, '------->关闭'
+            print u, '------->关闭</br>'
         else:
             queue1.put(u)
         queue.task_done()

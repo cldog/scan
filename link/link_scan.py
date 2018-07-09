@@ -24,7 +24,7 @@ def worker(iface='eth0'):
         arpPkt = Ether(dst="ff:ff:ff:ff:ff:ff") / ARP(pdst=u, hwdst="ff:ff:ff:ff:ff:ff")
         res = srp1(arpPkt, timeout=1, verbose=0,iface=iface)
         if res:
-            print "IP: " + res.psrc + "     MAC: " + res.hwsrc
+            print "IP: " + res.psrc + "     MAC: " + res.hwsrc + "</br>"
         queue.task_done()
 
 
